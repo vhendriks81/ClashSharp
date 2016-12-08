@@ -7,11 +7,11 @@ namespace ClashSharp.Service
 {
     public class ClanService : ServiceBase, IClanService
     {
-        private IClanTagService _clanTagSvc = new ClanTagService();
+        private ITagService _tagSvc = new TagService();
 
         public async Task<ClanInformation> GetClanInformation(string clanTag)
         {
-            var encodedClanTag = _clanTagSvc.EncodeClanTag(clanTag);
+            var encodedClanTag = _tagSvc.EncodeTag(clanTag);
             var url = string.Format(UrlConstants.GetClanInformationUrlTemplate, encodedClanTag);
 
             var result = await _apiClient.Get<ClanInformation>(url);
@@ -20,7 +20,7 @@ namespace ClashSharp.Service
 
         public async Task<ListClanMembersResponse> ListClanMembers(string clanTag)
         {
-            var encodedClanTag = _clanTagSvc.EncodeClanTag(clanTag);
+            var encodedClanTag = _tagSvc.EncodeTag(clanTag);
             var url = string.Format(UrlConstants.ListClanMembersUrlTemplate, encodedClanTag);
 
             var result = await _apiClient.Get<ListClanMembersResponse>(url);

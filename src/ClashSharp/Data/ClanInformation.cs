@@ -13,6 +13,9 @@ namespace ClashSharp.Data
         public string WarFrequency { get; set; } //todo: enum?
         public int ClanLevel { get; set; }
         public int WarWins { get; set; }
+        public int WarTies { get; set; }
+        public int WarLosses { get; set; }
+        public int WarWinStreak { get; set; }
         public int ClanPoints { get; set; }
         public int RequiredTrophies { get; set; }
         public int Members { get; set; }

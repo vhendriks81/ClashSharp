@@ -11,7 +11,7 @@ namespace ClashSharp.Sample
         {
             // uncomment a call to run the sample
 
-            CallGetClanInformation();
+            //CallGetClanInformation();
             //CallListClanMembers();
             //CallSearchClans();
             //CallListLocatio();
@@ -19,6 +19,7 @@ namespace ClashSharp.Sample
             //CallGetClanRankForLocation();
             //CallGetPlayerRankForLocation();
             //CallListLeagues();
+            CallGetPlayerInformation();
 
             Console.ReadLine();
         }
@@ -127,5 +128,21 @@ namespace ClashSharp.Sample
             return true;
         }
 
+        private static async Task<bool> CallGetPlayerInformation()
+        {
+            var svc = new PlayerService();
+            var task = svc.GetPlayerInformation("#2YVJYPGQ9");
+
+            await Task.WhenAll(task);
+
+            var result = task.Result;
+
+            Console.WriteLine(result.Name);
+            Console.WriteLine(result.Clan.Name);
+
+            Console.WriteLine("Done...");
+
+            return true;
+        }
     }
 }
