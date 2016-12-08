@@ -1,15 +1,15 @@
 ﻿using ClashSharp.Interface;
-using Newtonsoft.Json;
 using System;
-using System.Configuration;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace ClashSharp.Util
 {
     public class ApiClient : IApiClient
     {
         private HttpService _httpSvc = new HttpService();
-        private string _cocApiToken = ConfigurationManager.AppSettings["clashAPIKey"];
+        private string _cocApiToken = new ConfigurationBuilder().AddJsonFile("app.secrets.json").Build()["clashApiKey"];
 
         public async Task<T> Get<T>(string url) where T : new()
         {

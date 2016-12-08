@@ -10,7 +10,7 @@ namespace ClashSharp.Service
             // make sure our clan tag starts with a #
             if (clanTag.StartsWith("#") == false)
             {
-                throw new ApplicationException("Clan tag starts with '#'");
+                throw new Exception("Clan tag starts with '#'");
             }
 
             // encode our clanTag

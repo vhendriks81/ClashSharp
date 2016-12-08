@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace ClashSharp.Sample
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             // uncomment a call to run the sample
 
-            //CallGetClanInformation();
+            CallGetClanInformation();
             //CallListClanMembers();
             //CallSearchClans();
             //CallListLocatio();
