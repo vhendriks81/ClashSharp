@@ -12,7 +12,7 @@ namespace ClashSharp.Service
         public async Task<PlayerInformation> GetPlayerInformation(string playerTag)
         {
             var encodedClanTag = _tagSvc.EncodeTag(playerTag);
-            var url = string.Format(UrlConstants.GetClanInformationUrlTemplate, encodedClanTag);
+            var url = string.Format(UrlConstants.GetPlayerInformationUrlTemplate, encodedClanTag);
 
             var result = await _apiClient.Get<PlayerInformation>(url);
             return result;

@@ -14,5 +14,7 @@
         public const string GetPlayerRankForLocationUrlTemplate = @"https://api.clashofclans.com/v1/locations/{0}/rankings/players";
 
         public const string ListLeagueUrlTemplate = @"https://api.clashofclans.com/v1/leagues";
+
+        public const string GetPlayerInformationUrlTemplate = @"https://api.clashofclans.com/v1/players/{0}";
     }
 }
