@@ -2,6 +2,7 @@
 {
     public class ClanMember
     {
+        public string Tag { get; set; }
         public string Name { get; set; }
         public string Role { get; set; } //todo: enum?
         public int ExperienceLevel { get; set; }
