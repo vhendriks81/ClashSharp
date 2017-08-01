@@ -235,3 +235,4 @@ _Pvt_Extensions
 
 # Keep Config Secrets out of repo
 app.secrets.config
+/ClashSharp.Sample/app.secrets.json

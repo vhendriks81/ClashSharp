@@ -8,5 +8,6 @@
         public int Target { get; set; }
         public string Info { get; set; }
         public string CompletionInfo { get; set; }
+        public string Village { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace ClashSharp.Sample
             //CallGetClanRankForLocation();
             //CallGetPlayerRankForLocation();
             //CallListLeagues();
-            CallGetPlayerInformation();
+            CallGetPlayerInformation().Wait();
 
             Console.ReadLine();
         }
