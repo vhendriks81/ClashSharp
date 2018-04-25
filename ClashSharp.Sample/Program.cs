@@ -19,7 +19,8 @@ namespace ClashSharp.Sample
             //CallGetClanRankForLocation();
             //CallGetPlayerRankForLocation();
             //CallListLeagues();
-            CallGetPlayerInformation().Wait();
+            //CallGetPlayerInformation().Wait();
+            CallRetreiveInformationAboutClansCurrentWar();
 
             Console.ReadLine();
         }
@@ -140,6 +141,21 @@ namespace ClashSharp.Sample
             Console.WriteLine(result.Name);
             Console.WriteLine(result.Clan.Name);
 
+            Console.WriteLine("Done...");
+
+            return true;
+        }
+
+        private static async Task<bool> CallRetreiveInformationAboutClansCurrentWar()
+        {
+            var svc = new ClanService();
+            var task = svc.RetrieveInformationAboutClansCurrentWar("#88GYPPRQ");
+
+            await Task.WhenAll(task);
+
+            var result = task.Result;
+
+            Console.WriteLine($"{result.Clan.Name} V. {result.Opponent.Name}");
             Console.WriteLine("Done...");
 
             return true;

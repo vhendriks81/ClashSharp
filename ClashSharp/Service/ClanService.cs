@@ -27,14 +27,23 @@ namespace ClashSharp.Service
             return result;
         }
 
-        public async Task<SearchClanResult> SearchClans(ClanSearchCriteria criteria)
+        public async Task<CurrentWarResponse> RetrieveInformationAboutClansCurrentWar(string clanTag)
+        {
+            var encodedClanTag = _tagSvc.EncodeTag(clanTag);
+            var url = string.Format(UrlConstants.RetrieveInformationAboutClansCurrentWarUrlTemplate, encodedClanTag);
+
+            var result = await _apiClient.Get<CurrentWarResponse>(url);
+            return result;
+        }
+
+        public async Task<SearchClanResponse> SearchClans(ClanSearchCriteria criteria)
         {
             IClanSearchCriteriaService criteriaSvc = new ClanSearchCriteriaService();
 
             var queryString = criteriaSvc.BuildQueryStringFromCriteria(criteria);
             var url = string.Format(UrlConstants.SearchClansUrlTemplate, queryString);
 
-            var result = await _apiClient.Get<SearchClanResult>(url);
+            var result = await _apiClient.Get<SearchClanResponse>(url);
             return result;
         }
     }

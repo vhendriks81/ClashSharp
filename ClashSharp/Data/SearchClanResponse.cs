@@ -2,7 +2,7 @@
 
 namespace ClashSharp.Data
 {
-    public class SearchClanResult
+    public class SearchClanResponse
     {
         public IEnumerable<ClanInformation> Items { get; set; }
     }

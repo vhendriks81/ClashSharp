@@ -5,8 +5,9 @@ namespace ClashSharp.Interface
 {
     public interface IClanService
     {
-        Task<SearchClanResult> SearchClans(ClanSearchCriteria criteria);
+        Task<SearchClanResponse> SearchClans(ClanSearchCriteria criteria);
         Task<ClanInformation> GetClanInformation(string clanTag);
         Task<ListClanMembersResponse> ListClanMembers(string clanTag);
+        Task<CurrentWarResponse> RetrieveInformationAboutClansCurrentWar(string clanTag);
     }
 }
